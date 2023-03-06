@@ -67,9 +67,9 @@
                         <div class="d-flex flex-center flex-column align-items-stretch h-lg-100 w-md-400px">
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-center flex-column-fluid pb-15 pb-lg-20">
-                                
+
                                 <!--begin::Form-->
-                                <form class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate" id="kt_sign_in_form" method="GET" action="{{ route('dashboard') }}">
+                                <form class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate" id="kt_sign_in_form" method="POST" action="{{ route('action.login') }}">
                                     @csrf
                                     <!--begin::Heading-->
                                     <div class="text-center mb-11">
@@ -87,17 +87,23 @@
                                         <!--end::Subtitle--->
                                     </div>
                                     <!--begin::Heading-->
-                                
+
+                                    @if (session('error'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ session('error') }}
+                                    </div>
+                                    @endif
                                 
                                     <!--begin::Input group--->
                                     <div class="fv-row mb-8 fv-plugins-icon-container">
                                         <!--begin::Email-->
                                         {{-- <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent">  --}}
-                                        <select name="email" class="form-control">
-                                            <option value="admin@example.com">Admin</option>
-                                            <option value="leader1@example.com">Leader</option>
-                                            <option value="client1@example.com">Client</option>
-                                            <option value="teknisi1@example.com">Teknisi</option>
+                                        <select name="nik" class="form-control">
+                                            <option value="admin">Admin</option>
+                                            <option value="talent_koordinator">Talent Koordinator</option>
+                                            <option value="hrbp">HRBP</option>
+                                            <option value="manager">Manager</option>
+                                            <option value="pegawai">Pegawai</option>
                                         </select>
                                         <!--end::Email-->
                                         <div class="fv-plugins-message-container invalid-feedback"></div>

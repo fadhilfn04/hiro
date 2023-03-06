@@ -403,17 +403,16 @@
 			<div class="offcanvas-content pr-5 mr-n5">
 				<div class="d-flex align-items-center mt-5">
 					<div class="symbol symbol-100 mr-5">
-                        <div class="symbol-label" style="background-image:url(''); background-position:top;"></div>
+                        <div class="symbol-label" style="background-image:url(''); background-position:top;font-size: 5vh">
+                            {{ substr(auth()->user()->nama, 0, 1) }}
+                        </div>
 						<i class="symbol-badge bg-success"></i>
 					</div>
 					<div class="d-flex flex-column">
-						<a href="javascript:void(0)" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">Test Nama </a>
+						<a href="javascript:void(0)" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{ auth()->user()->nama }} </a>
 						<div class="text-muted mt-1">Test Posisi</div>
 						<div class="navi mt-2">
-                            <form id="logout-form" action=" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-							<a href="" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Sign Out</a>
+							<a href="{{ route('logout') }}" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
 						</div>
 					</div>
 				</div>
